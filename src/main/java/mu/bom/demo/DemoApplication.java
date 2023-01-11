@@ -10,10 +10,14 @@ public class DemoApplication {
 	@Value("${spring.sample.property}")
 	static String valueProperty;
 
+	static void test() {
+		System.out.print("Test Demo" + valueProperty);
+	}
+
 	public static void main(String[] args) {
 
 		SpringApplication.run(DemoApplication.class, args);
-		System.out.print("Test Demo" + valueProperty);
+		test();
 	}
 
 }
