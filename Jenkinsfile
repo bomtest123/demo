@@ -25,8 +25,8 @@ node {
     stage('Clone Repo') {
       // for display purposes
       // Get some code from a GitHub repository
-      git url: 'https://github.com/bomtest123/demo.git',
-              branch: 'master'
+      git branch: 'master', url: 'https://github.com/bomtest123/demo.git'
+              
     }
     stage('Build docker') {
       dockerImage = docker.build("springboot-deploy:${env.BUILD_NUMBER}")
@@ -59,9 +59,7 @@ def notifyBuild(String buildStatus = 'STARTED'){
   def subject = "${buildStatus}, Job: ${env.JOB_NAME} FRONTEND - Deployment Sequence: [${env.BUILD_NUMBER}] "
   def summary = "${subject} - Check On: (${env.BUILD_URL}) - Time: ${now}"
   def subject_email = "Spring boot Deployment"
-  def details = """<p>${buildStatus} JOB </p>
-    <p>Job: ${env.JOB_NAME} - Deployment Sequence: [${env.BUILD_NUMBER}] - Time: ${now}</p>
-    <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME}</a>"</p>"""
+  def details = """<p>${buildStatus} JOB </p> <p>Job: ${env.JOB_NAME} - Deployment Sequence: [${env.BUILD_NUMBER}] - Time: ${now}</p> <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME}</a>"</p>"""
 
   // Email notification
   emailext (
