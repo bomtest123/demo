@@ -1,6 +1,6 @@
 node {
   stage("Clone the project") {
-    git branch: 'master', url: 'https://github.com/bomtest123/rupay_repo.git'
+    git branch: 'master', url: 'https://github.com/bomtest123/demo.git'
   }
 
   stage("Compilation") {

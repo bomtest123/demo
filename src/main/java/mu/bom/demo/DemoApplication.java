@@ -7,8 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("Test Demo");
+
 		SpringApplication.run(DemoApplication.class, args);
+      	
+		@Value("${spring.sample.property}")
+		String valueProperty;
+		System.out.println("Test Demo", valueProperty);
+		
 	}
 
 }
