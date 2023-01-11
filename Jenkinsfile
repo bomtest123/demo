@@ -1,6 +1,7 @@
 node {
   stage("Clone the project") {
     git branch: 'master', url: 'https://github.com/bomtest123/demo.git'
+  }
 
   stage("Compilation") {
     sh "./mvnw clean install -DskipTests"
@@ -15,4 +16,3 @@ node {
     }
   }
 }
-
