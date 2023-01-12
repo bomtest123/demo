@@ -4,8 +4,7 @@ pipeline {
     CI = 'true'
   }
   stages {
-    
-    stage {
+    stage('Install package') {
       agent {
         docker { image 'node:16.13.1-alpine' }
       } 
