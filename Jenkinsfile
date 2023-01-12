@@ -4,10 +4,11 @@ pipeline {
     CI = 'true'
   }
   stages {
-    agent {
-      docker { image 'node:16.13.1-alpine' }
-    }
+    
     stage {
+      agent {
+        docker { image 'node:16.13.1-alpine' }
+      } 
       steps {
         sh 'node --version'
       }
