@@ -9,17 +9,17 @@ pipeline {
     CI = 'true'
   }
   stages {
-    stage {
+    stage('Build') {
       steps {
         sh './mvnw clean install -DskipTests'
       }
     }
-    stage {
+    stage('Test') {
       steps {
         sh './mvnw test -Punit'
       }
     }
-    stage {
+    stage('Deploy') {
       steps {
         sh 'nohup ./mvnw spring-boot:run -Dserver.port=8081 &'
       }
