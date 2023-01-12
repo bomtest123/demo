@@ -4,6 +4,15 @@ pipeline {
     CI = 'true'
   }
   stages {
+    agent {
+      docker { image 'node:16.13.1-alpine' }
+    }
+    stage {
+      steps {
+        sh 'node --version'
+      }
+    }
+            
     stage('Build') {
       steps {
         sh './mvnw clean install -DskipTests'
